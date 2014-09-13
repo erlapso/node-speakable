@@ -1,6 +1,6 @@
 var Speakable = require('./');
 var API_KEY = process.env.WKEY;
-// Setup google speech
+// Setup WIT.AI speech
 var speakable = new Speakable({key: API_KEY});
 
 speakable.on('speechStart', function() {

@@ -1,12 +1,14 @@
 # node-speakable
 
+This a fork of node-speakable that works with the WIT.AI API: https://wit.ai
+
 Demo video on what you can achieve using node-speakable: https://my.doctape.com/s/NLHn1z
 
 ## Description
 
 **node-speakable** is a continuous speech recognition module for node.js.
 
-Basically, **node-speakable** is continuous waiting for you to say something and waits until you finally stopped talking. It then emits an ```speechResult``` event with an ```Array()``` including of your ```recognizedWords```. You can then ```.indexOf()``` the array to trigger some awesome action to happen, like turning on your ```Philips Hue``` lights.
+Basically, **node-speakable** is continuous waiting for you to say something and waits until you finally stopped talking. It then emits an ```speechResult``` event with an ```Object()``` including of your Intents. You can then parse the response to trigger some awesome action to happen, like turning on your ```Philips Hue``` lights.
 
 If you ever talked to your XBOX360 (kinect) you're already familiar on how a continuous speech recognition system works for you.
 
@@ -23,14 +25,8 @@ You'll need to ensure that you turn the Google Speech API selection to 'ON' in t
 ```javascript
 var Speakable = require('./');
 
-var speakable = new Speakable({key: 'your-google-API-key'});
+var speakable = new Speakable({key: 'your-WIT-API-key'});
 ```
-By default, the language is American English ( 'en-US' ), but you can specify another language in the options.
-Example usage:
-```javascript
-var speakable = new Speakable({key: 'your-google-API-key'}, {lang: 'it-IT'});
-```
-
 ```javascript
 speakable.on('speechStart', function() {
   console.log('onSpeechStart');
